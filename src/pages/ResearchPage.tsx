@@ -1,28 +1,41 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
+import { FileText } from 'lucide-react';
 
 export default function ResearchPage() {
-  const researchInterests = [
-    'Data Analytics & Visualization',
-    'Human-Computer Interaction (HCI)',
-    'Cybersecurity & Threat Analysis',
-    'Machine Learning Applications',
-    'Information Systems & Management',
-    'Digital Archives & Library Science'
-  ];
-
+  // Update this array with your actual paper information
   const publications = [
     {
-      title: 'Placeholder Research Project Title',
-      description: 'A brief description of the research project, its goals, and the methodologies used. This could be a university project, a case study, or a personal investigation into a topic.',
-      status: 'In Progress',
-      keywords: ['Data Analysis', 'Python', 'Case Study']
+      title: 'CI Case Study for EV Cars',
+      description: 'A competitive intelligence case study analyzing the US Electric Vehicle market, focusing on the market share and consumer complaints for top brands like Tesla, Hyundai, Ford, and GM during early 2025.',
+      status: 'Academic Paper',
+      keywords: ['EV Cars', 'Market Analysis', 'Competitive Intelligence', 'Consumer Complaints'],
+      // IMPORTANT: Make sure this file name matches your PDF in the public/papers folder
+      pdfLink: '/papers/CI Case Study for EV Cars.pdf'
     },
     {
-      title: 'Another Sample Research Topic',
-      description: 'Describe another project here. You can detail the problem you were trying to solve and the outcomes of your work, including any data you analyzed or systems you designed.',
-      status: 'Completed',
-      keywords: ['Informatics', 'System Design', 'User Research']
+      title: 'Cyberattack on Microsoft Exchange Server',
+      description: 'An analysis of the 2021 cyberattack on Microsoft Exchange Server, detailing the causes, impact, and the ethical dilemmas surrounding corporate responsibility, user accountability, and cybersecurity equity.',
+      status: 'Academic Paper',
+      keywords: ['Cybersecurity', 'Microsoft Exchange', 'Ethical Hacking', 'Data Breach'],
+      // IMPORTANT: Make sure this file name matches your PDF in the public/papers folder
+      pdfLink: '/papers/Cyberattack on Microsoft Echange Server - Causes, Implications, and Ethical Challenges.pdf'
+    },
+    {
+        title: 'Protecting Small Businesses from Ransomware',
+        description: 'A cybersecurity plan detailing foundational pillars like risk management, security governance, and incident response to protect small businesses from ransomware and phishing attacks.',
+        status: 'Academic Paper',
+        keywords: ['Ransomware', 'Phishing', 'Incident Response', 'Security Governance'],
+        // IMPORTANT: Make sure this file name matches your PDF in the public/papers folder
+        pdfLink: '/papers/Protecting Small Businesses from Ransomware and Phishing Attacks.pdf'
+    },
+    {
+        title: 'Hypothetical Virtualization and Security Report',
+        description: 'A report detailing the setup of a local virtual environment using Docker and Kali Linux, covering security configurations with iptables, user management, and the translation of these concepts to cloud platforms like AWS and Azure.',
+        status: 'Academic Paper',
+        keywords: ['Virtualization', 'Docker', 'Kali Linux', 'iptables', 'Cloud Security'],
+        // IMPORTANT: Make sure this file name matches your PDF in the public/papers folder
+        pdfLink: '/papers/Hypothetical Virtualization and Security Report.pdf'
     }
   ];
 
@@ -42,20 +55,6 @@ export default function ResearchPage() {
             </p>
           </div>
 
-          {/* Research Interests Section */}
-          <div className="mb-16 neon-border bg-gray-900 p-6 fade-in">
-            <h2 className="text-2xl font-bold pixel-text text-cyan-300 mb-6">
-              &gt; AREAS_OF_INTEREST
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {researchInterests.map((interest, index) => (
-                <div key={index} className="border border-emerald-300 p-4 pixel-text text-emerald-300">
-                  &gt; {interest}
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Publications Section */}
           <div className="space-y-8">
             {publications.map((pub, index) => (
@@ -71,12 +70,25 @@ export default function ResearchPage() {
                 <p className="text-gray-100 pixel-text mb-4 text-sm leading-relaxed">
                   {pub.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-4 items-center">
+                  {/* Keywords */}
                   {pub.keywords.map((keyword, keywordIndex) => (
                     <span key={keywordIndex} className="px-2 py-1 text-xs pixel-text bg-black border border-emerald-300 text-emerald-300">
                       {keyword}
                     </span>
                   ))}
+                  {/* PDF Button */}
+                  {pub.pdfLink && (
+                    <a
+                      href={pub.pdfLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 px-4 py-2 bg-black border-2 border-cyan-300 text-cyan-300 pixel-text hover:bg-cyan-300 hover:text-black transition-colors duration-300 ml-auto"
+                    >
+                      <FileText size={16} />
+                      <span>View PDF</span>
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
