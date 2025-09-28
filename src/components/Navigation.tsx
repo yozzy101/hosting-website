@@ -6,6 +6,7 @@ export default function Navigation() {
   const navItems = [
     { path: '/', label: 'HOME', icon: '🏠' },
     { path: '/projects', label: 'PROJECTS', icon: '💾' },
+    { path: '/research', label: 'RESEARCH', icon: '📄' }, // Add this line
     { path: '/certificates', label: 'CERTIFICATES', icon: '🏆' },
     { path: '/about', label: 'ABOUT', icon: '👤' }
   ];
