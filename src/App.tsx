@@ -1,0 +1,44 @@
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Import Components
+import WelcomeScreen from './components/WelcomeScreen';
+import LoadingScreen from './components/LoadingScreen';
+
+// Import Pages
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ProjectsPage from './pages/ProjectsPage';
+import CertificatesPage from './pages/CertificatesPage';
+
+export default function App() {
+  const [hasEntered, setHasEntered] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleEnter = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setHasEntered(true);
+    }, 3000);
+  };
+
+  if (!hasEntered) {
+    return isLoading ? <LoadingScreen /> : <WelcomeScreen onEnter={handleEnter} />;
+  }
+
+  return (
+    <Router>
+      <div className="min-h-screen bg-black text-green-400 font-mono overflow-hidden relative">
+        <div className="scanlines"></div>
+        <div className="crt-overlay"></div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/certificates" element={<CertificatesPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
