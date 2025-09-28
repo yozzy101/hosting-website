@@ -1,72 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-body {
-  background-color: #000;
-  overflow-x: hidden;
-}
-.scanlines {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0, 255, 0, 0.03) 50%);
-  background-size: 100% 4px; pointer-events: none; z-index: 1000;
-}
-.crt-overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-  pointer-events: none; z-index: 999;
-}
-.pixel-text {
-  font-family: 'Orbitron', monospace;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 0 0 5px currentColor, 0 0 8px currentColor;
-  font-weight: 600;
-}
-.neon-border {
-  border: 2px solid #10b981;
-  box-shadow: 0 0 5px #10b981, inset 0 0 5px #10b981, 0 0 10px #10b981, inset 0 0 10px #10b981;
-}
-.retro-button {
-  background: linear-gradient(45deg, #d946ef, #06b6d4);
-  border: 2px solid rgba(255, 255, 255, 0.3); padding: 15px 30px;
-  font-family: 'Orbitron', monospace; font-weight: 700; color: #000;
-  text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(217, 70, 239, 0.4), 0 0 25px rgba(6, 182, 212, 0.4);
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
-}
-.retro-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.8);
-}
-.glitch { animation: glitch 2s infinite; }
-@keyframes glitch {
-  0%, 100% { transform: translate(0); } 20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); } 60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-}
-.loading-bar {
-  width: 100%; height: 20px; background: #333;
-  border: 2px solid #10b981; overflow: hidden; position: relative;
-}
-.loading-progress {
-  height: 100%;
-  background: linear-gradient(90deg, #10b981, #fbbf24, #10b981);
-  animation: loading 3s ease-in-out;
-}
-@keyframes loading { 0% { width: 0%; } 100% { width: 100%; } }
-.retro-grid {
-  background-image: linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-.fade-in { animation: fadeIn 1s ease-in; }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.pulse-glow { animation: pulseGlow 2s infinite; }
-@keyframes pulseGlow {
-  0%, 100% { text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 0 0 5px currentColor, 0 0 8px currentColor; }
-  50% { text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 0 0 8px currentColor, 0 0 15px currentColor, 0 0 20px currentColor; }
-}
-.text-glow {
-  text-shadow: 1px 1px 0 rgba(0,0,0,0.8), 0 0 8px currentColor, 0 0 15px currentColor;
+// Import Components
+import WelcomeScreen from './components/WelcomeScreen';
+import LoadingScreen from './components/LoadingScreen';
+
+// Import Pages
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ProjectsPage from './pages/ProjectsPage';
+import CertificatesPage from './pages/CertificatesPage';
+import ResearchPage from './pages/ResearchPage'; // 1. Import the new page
+
+export default function App() {
+  const [hasEntered, setHasEntered] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleEnter = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setHasEntered(true);
+    }, 3000);
+  };
+
+  if (!hasEntered) {
+    return isLoading ? <LoadingScreen /> : <WelcomeScreen onEnter={handleEnter} />;
+  }
+
+  return (
+    <Router>
+      <div className="min-h-screen bg-black text-green-400 font-mono overflow-hidden relative">
+        <div className="scanlines"></div>
+        <div className="crt-overlay"></div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/research" element={<ResearchPage />} /> {/* 2. Add the new route */}
+          <Route path="/certificates" element={<CertificatesPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
