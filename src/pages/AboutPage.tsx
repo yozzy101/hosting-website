@@ -1,6 +1,5 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
-import TerminalFooter from '../components/TerminalFooter'; // 1. Import
 import { Mail, Linkedin } from 'lucide-react';
 
 export default function AboutPage() {
@@ -55,9 +54,9 @@ export default function AboutPage() {
                             </div>
                         </div>
                         <div className="space-y-8">
-                            <div className="neon-border bg-gray-900 p-6 fade-in">
+                            <div className="neon-border bg-gray-900 p-6 fade-in flex flex-col h-full">
                                 <h2 className="text-xl font-bold pixel-text text-cyan-300 mb-4">&gt; CONTACT</h2>
-                                <div className="space-y-4">
+                                <div className="space-y-4 flex-grow">
                                     {contacts.map(({ label, email, link }, index) => (
                                         <a key={index} href={link} target="_blank" rel="noopener noreferrer" className="flex flex-col text-emerald-300 hover:text-cyan-300 transition-colors pixel-text">
                                             <span className="text-xs text-gray-400">{label}</span>
@@ -68,9 +67,15 @@ export default function AboutPage() {
                                         </a>
                                     ))}
                                 </div>
+                                <a 
+                                    href="/YosgarthC Resume.pdf" 
+                                    download 
+                                    className="retro-button-cv w-full mt-auto text-center"
+                                >
+                                    DOWNLOAD CV
+                                </a>
                             </div>
                             <div className="neon-border bg-gray-900 p-6 fade-in">
-                                <h2 className="text-xl font-bold pixel-text text-cyan-300 mb-4">&gt; STATS</h2>
                                 <div className="space-y-3 text-sm pixel-text">
                                     <div className="flex justify-between">
                                         <span className="text-gray-100">DEGREE:</span>
@@ -88,9 +93,6 @@ export default function AboutPage() {
                             </div>
                         </div>
                     </div>
-
-                    {/* 2. Add the TerminalFooter component here */}
-                    <TerminalFooter />
                 </div>
             </div>
         </div>
