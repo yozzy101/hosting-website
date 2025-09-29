@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
-import TerminalFooter from '../components/TerminalFooter'; // 1. Import
+import ResearchFooter from '../components/ResearchFooter'; // 1. Import the new footer
 import { FileText } from 'lucide-react';
 
 export default function ResearchPage() {
@@ -85,8 +85,8 @@ export default function ResearchPage() {
             ))}
           </div>
 
-          {/* 2. Add the TerminalFooter component here */}
-          <TerminalFooter />
+          {/* 2. Add the new, unique ResearchFooter component here */}
+          <ResearchFooter />
         </div>
       </div>
     </div>
