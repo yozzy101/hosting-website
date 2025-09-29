@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
-import TerminalFooter from '../components/TerminalFooter'; // 1. Import
+import TerminalFooter from '../components/CertificatesFooter'; // 1. Import
 import { Calendar } from 'lucide-react';
 
 export default function CertificatesPage() {
@@ -69,7 +69,7 @@ export default function CertificatesPage() {
           </div>
 
           {/* 2. Add the TerminalFooter component here */}
-          <TerminalFooter />
+          <CertificatesFooter />
         </div>
       </div>
     </div>
