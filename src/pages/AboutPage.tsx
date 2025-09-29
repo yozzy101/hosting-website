@@ -1,9 +1,9 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
-import { Mail, Linkedin } from 'lucide-react'; // Phone icon removed
+import TerminalFooter from '../components/TerminalFooter'; // 1. Import
+import { Mail, Linkedin } from 'lucide-react';
 
 export default function AboutPage() {
-    // The data for the contact section
     const contacts = [
         { label: 'Personal', email: 'cyosgarth@gmail.com', link: 'mailto:cyosgarth@gmail.com' },
         { label: 'School', email: 'ycalderon@my.dom.edu', link: 'mailto:ycalderon@my.dom.edu' },
@@ -88,6 +88,9 @@ export default function AboutPage() {
                             </div>
                         </div>
                     </div>
+
+                    {/* 2. Add the TerminalFooter component here */}
+                    <TerminalFooter />
                 </div>
             </div>
         </div>
