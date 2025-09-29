@@ -1,12 +1,15 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
+import TerminalFooter from '../components/TerminalFooter'; // 1. Import the new component
 
 export default function HomePage() {
   return (
     <div className="min-h-screen relative">
-      <Navigation /> <div className="retro-grid absolute inset-0"></div>
+      <Navigation /> 
+      <div className="retro-grid absolute inset-0"></div>
       <div className="pt-24 pb-12 px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
+          {/* --- Existing Home Page Content --- */}
           <div className="text-center mb-16 fade-in">
             <div className="mb-8">
               <div className="neon-border bg-gray-900 p-8 mb-8 max-w-4xl mx-auto">
@@ -20,6 +23,10 @@ export default function HomePage() {
               &gt; Transforming complex data into actionable intelligence
             </p>
           </div>
+          
+          {/* 2. Add the TerminalFooter component here */}
+          <TerminalFooter />
+
         </div>
       </div>
     </div>
