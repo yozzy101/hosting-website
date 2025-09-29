@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
+import TerminalFooter from '../components/TerminalFooter'; // 1. Import
 import { FileCode, FileText, ImageIcon } from 'lucide-react';
 
 export default function ProjectsPage() {
@@ -16,14 +17,13 @@ export default function ProjectsPage() {
         { label: 'View Poster', href: '/ssh-analysis/Analyzing_SSH_Attack.png', icon: ImageIcon }
       ]
     },
-    // Your other projects...
     {
       id: 2,
       title: 'Company Website & Survey',
       description: 'Developed a customer-facing website and integrated a digital survey to streamline data management and enhance communication for Go Green Tree & Outdoor Services.',
       tech: ['HTML', 'CSS', 'JAVASCRIPT', 'SURVEY DESIGN'],
       status: 'COMPLETED',
-      links: [] // No links for this one, so the buttons won't show
+      links: []
     },
     {
       id: 3,
@@ -108,6 +108,9 @@ export default function ProjectsPage() {
               </div>
             ))}
           </div>
+
+          {/* 2. Add the TerminalFooter component here */}
+          <TerminalFooter />
         </div>
       </div>
     </div>
