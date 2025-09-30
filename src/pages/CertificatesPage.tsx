@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
-import TerminalFooter from '../components/CertificatesFooter'; // 1. Import
+import CertificatesFooter from '../components/CertificatesFooter'; // 1. Import the new footer
 import { Calendar } from 'lucide-react';
 
 export default function CertificatesPage() {
@@ -68,7 +68,7 @@ export default function CertificatesPage() {
             ))}
           </div>
 
-          {/* 2. Add the TerminalFooter component here */}
+          {/* 2. Add the new, unique CertificatesFooter component here */}
           <CertificatesFooter />
         </div>
       </div>
