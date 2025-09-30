@@ -19,7 +19,8 @@ export default function AboutPage() {
         <div className="min-h-screen relative">
             <Navigation />
             <div className="retro-grid absolute inset-0"></div>
-            <div className="pt-24 pb-12 px-4 relative z-10">
+            {/* Added more bottom padding here (pb-24) to fix content being cut off */}
+            <div className="pt-24 pb-24 px-4 relative z-10">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16 fade-in">
                         <h1 className="text-5xl md:text-6xl font-bold pixel-text text-cyan-300 mb-6 pulse-glow">&gt; ABOUT.EXE &lt;</h1>
@@ -53,6 +54,7 @@ export default function AboutPage() {
                                 </div>
                             </div>
                         </div>
+                        {/* Wrapped Contact and Stats in a div to align them correctly */}
                         <div className="space-y-8">
                             <div className="neon-border bg-gray-900 p-6 fade-in flex flex-col h-full">
                                 <h2 className="text-xl font-bold pixel-text text-cyan-300 mb-4">&gt; CONTACT</h2>
@@ -76,6 +78,7 @@ export default function AboutPage() {
                                 </a>
                             </div>
                             <div className="neon-border bg-gray-900 p-6 fade-in">
+                                <h2 className="text-xl font-bold pixel-text text-cyan-300 mb-4">&gt; STATS</h2>
                                 <div className="space-y-3 text-sm pixel-text">
                                     <div className="flex justify-between">
                                         <span className="text-gray-100">DEGREE:</span>
