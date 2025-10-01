@@ -51,7 +51,7 @@ export default function AboutPage() {
                                             </div>
                                         </div>
                                     ))}
-                                </div>
+                                inudiv>
                             </div>
                         </div>
 
@@ -70,16 +70,15 @@ export default function AboutPage() {
                                         </a>
                                     ))}
                                 </div>
-                                {/* MOVED BUTTON HERE */}
                                 <a 
                                     href="/YosgarthC Resume.pdf" 
                                     download 
-                                    className="retro-button-cv w-full mt-8 text-center"
+                                    className="retro-button-cv w-full mt-6 text-center"
                                 >
                                     DOWNLOAD CV
                                 </a>
                             </div>
-                            <div className="neon-border bg-gray-900 p-6 fade-in mb-16"> {/* ADDED BOTTOM MARGIN HERE */}
+                            <div className="neon-border bg-gray-900 p-6 fade-in mb-16">
                                 <h2 className="text-xl font-bold pixel-text text-cyan-300 mb-4">&gt; STATS</h2>
                                 <div className="space-y-3 text-sm pixel-text">
                                     <div className="flex justify-between">
