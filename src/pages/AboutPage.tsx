@@ -19,13 +19,13 @@ export default function AboutPage() {
         <div className="min-h-screen relative">
             <Navigation />
             <div className="retro-grid absolute inset-0"></div>
-            {/* Added more bottom padding here (pb-24) to fix content being cut off */}
             <div className="pt-24 pb-24 px-4 relative z-10">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16 fade-in">
                         <h1 className="text-5xl md:text-6xl font-bold pixel-text text-cyan-300 mb-6 pulse-glow">&gt; ABOUT.EXE &lt;</h1>
                     </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        {/* Left Column: Profile and Work History */}
                         <div className="lg:col-span-2 space-y-8">
                             <div className="neon-border bg-gray-900 p-6 fade-in">
                                 <h2 className="text-2xl font-bold pixel-text text-cyan-300 mb-4">&gt; PROFILE</h2>
@@ -54,11 +54,12 @@ export default function AboutPage() {
                                 </div>
                             </div>
                         </div>
-                        {/* Wrapped Contact and Stats in a div to align them correctly */}
+
+                        {/* Right Column: Contact and Stats */}
                         <div className="space-y-8">
-                            <div className="neon-border bg-gray-900 p-6 fade-in flex flex-col h-full">
+                            <div className="neon-border bg-gray-900 p-6 fade-in">
                                 <h2 className="text-xl font-bold pixel-text text-cyan-300 mb-4">&gt; CONTACT</h2>
-                                <div className="space-y-4 flex-grow">
+                                <div className="space-y-4">
                                     {contacts.map(({ label, email, link }, index) => (
                                         <a key={index} href={link} target="_blank" rel="noopener noreferrer" className="flex flex-col text-emerald-300 hover:text-cyan-300 transition-colors pixel-text">
                                             <span className="text-xs text-gray-400">{label}</span>
@@ -69,15 +70,16 @@ export default function AboutPage() {
                                         </a>
                                     ))}
                                 </div>
+                                {/* MOVED BUTTON HERE */}
                                 <a 
                                     href="/YosgarthC Resume.pdf" 
                                     download 
-                                    className="retro-button-cv w-full mt-auto text-center"
+                                    className="retro-button-cv w-full mt-8 text-center"
                                 >
                                     DOWNLOAD CV
                                 </a>
                             </div>
-                            <div className="neon-border bg-gray-900 p-6 fade-in">
+                            <div className="neon-border bg-gray-900 p-6 fade-in mb-16"> {/* ADDED BOTTOM MARGIN HERE */}
                                 <h2 className="text-xl font-bold pixel-text text-cyan-300 mb-4">&gt; STATS</h2>
                                 <div className="space-y-3 text-sm pixel-text">
                                     <div className="flex justify-between">
