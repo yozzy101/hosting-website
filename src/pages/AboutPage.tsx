@@ -2,7 +2,6 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 import { Mail, Linkedin } from 'lucide-react';
 
-
 export default function AboutPage() {
     const contacts = [
         { label: 'Personal', email: 'cyosgarth@gmail.com', link: 'mailto:cyosgarth@gmail.com' },
@@ -52,7 +51,7 @@ export default function AboutPage() {
                                             </div>
                                         </div>
                                     ))}
-                                inudiv>
+                                </div>
                             </div>
                         </div>
 
@@ -74,7 +73,7 @@ export default function AboutPage() {
                                 <a 
                                     href="/YosgarthC Resume.pdf" 
                                     download 
-                                    className="retro-button-cv w-full mt-6 text-center"
+                                    className="retro-button-cv w-full mt-4 text-center"
                                 >
                                     DOWNLOAD CV
                                 </a>
