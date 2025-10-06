@@ -25,7 +25,7 @@ export default function ProjectsPage() {
       status: 'COMPLETED',
       links: [
         { label: 'View Dataset', href: 'https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks', icon: ExternalLink },
-        { label: 'View PDF Report', href: '/advanced-sql-tuning/assignment3 - YC.pdf', icon: FileText }
+        { label: 'View PDF Report', href: '/advanced-sql-tuning/Assignment3 - YC', icon: FileText }
       ]
     },
     {
