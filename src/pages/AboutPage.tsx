@@ -57,9 +57,10 @@ export default function AboutPage() {
 
                         {/* Right Column: Contact and Stats */}
                         <div className="space-y-8">
-                            <div className="neon-border bg-gray-900 p-6 fade-in">
+                            {/* THIS IS THE UPDATED CONTACT CONTAINER */}
+                            <div className="neon-border bg-gray-900 p-6 fade-in flex flex-col h-full">
                                 <h2 className="text-xl font-bold pixel-text text-cyan-300 mb-4">&gt; CONTACT</h2>
-                                <div className="space-y-4">
+                                <div className="space-y-4 flex-grow">
                                     {contacts.map(({ label, email, link }, index) => (
                                         <a key={index} href={link} target="_blank" rel="noopener noreferrer" className="flex flex-col text-emerald-300 hover:text-cyan-300 transition-colors pixel-text">
                                             <span className="text-xs text-gray-400">{label}</span>
@@ -73,7 +74,7 @@ export default function AboutPage() {
                                 <a 
                                     href="/YosgarthC Resume.pdf" 
                                     download 
-                                    className="retro-button-cv w-full mt-6 text-center"
+                                    className="retro-button-cv w-full mt-auto text-center"
                                 >
                                     DOWNLOAD CV
                                 </a>
