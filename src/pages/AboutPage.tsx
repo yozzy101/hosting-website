@@ -74,7 +74,7 @@ export default function AboutPage() {
                                 <a 
                                     href="/YosgarthC Resume.pdf" 
                                     download 
-                                    className="retro-button-cv w-full mt-6 text-center"
+                                    className="retro-button-cv w-full mt-20 text-center"
                                 >
                                     DOWNLOAD CV
                                 </a>
