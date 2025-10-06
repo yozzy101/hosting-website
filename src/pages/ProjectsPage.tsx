@@ -1,14 +1,14 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
-import ProjectsFooter from '../components/ProjectsFooter'; // 1. Import the new footer
-import { FileCode, FileText, ImageIcon } from 'lucide-react';
+import ProjectsFooter from '../components/ProjectsFooter';
+import { FileCode, FileText, ImageIcon, ExternalLink } from 'lucide-react';
 
 export default function ProjectsPage() {
   const projects = [
     {
       id: 1,
       title: 'Analysis of Malicious SSH Login Attempts',
-      description: 'Conducted a data analysis project using R and RStudio to investigate time-based and geographical patterns of malicious SSH login attempts. Utilized a public Kaggle dataset of honeypot server logs, containing ~14,800 records. The project involved cleaning and transforming JSON data, geolocating IP addresses, and creating visualizations with ggplot2 to identify attack schedules and dominant source countries.',
+      description: 'Conducted a data analysis project using R and RStudio to investigate time-based and geographical patterns of malicious SSH login attempts from a public Kaggle dataset. The project involved cleaning JSON data, geolocating IPs, and creating visualizations with ggplot2 to identify attack schedules.',
       tech: ['R', 'RSTUDIO', 'GGPLOT2', 'DPLYR', 'DATA VISUALIZATION'],
       status: 'COMPLETED',
       links: [
@@ -19,14 +19,27 @@ export default function ProjectsPage() {
     },
     {
       id: 2,
-      title: 'Company Website & Survey',
-      description: 'Developed a customer-facing website and integrated a digital survey to streamline data management and enhance communication for Go Green Tree & Outdoor Services.',
-      tech: ['HTML', 'CSS', 'JAVASCRIPT', 'SURVEY DESIGN'],
+      title: 'SF Public Library Usage Analysis',
+      description: 'As a data analyst librarian, I designed and normalized a database to 3NF from a raw dataset of San Francisco Public Library usage. I developed and executed advanced SQL queries using PostgreSQL to answer key business questions, identifying trends in patron activity, checkout patterns across time, and relationships between patron age and library use to inform strategic planning.',
+      tech: ['SQL', 'POSTGRESQL', 'DATABASE DESIGN', '3NF NORMALIZATION', 'ERD'],
       status: 'COMPLETED',
-      links: []
+      links: [
+        { label: 'View Dataset', href: 'https://data.sfgov.org/Culture-and-Recreation/Library-Usage/qzz6-2jup/about_data', icon: ExternalLink },
+        { label: 'View PDF Report', href: '/sql-library-analysis/SqlAssignment1 - YC.pdf', icon: FileText }
+      ]
     },
     {
       id: 3,
+      title: 'Company Website & Survey',
+      description: 'Developed a customer-facing website and integrated a digital survey to streamline data management and enhance communication for Go Green Tree & Outdoor Services.',
+      tech: ['HTML', 'CSS', 'GOOGLE SITES', 'SURVEY DESIGN'],
+      status: 'COMPLETED',
+      links: [
+        { label: 'View Website', href: 'https://sites.google.com/view/gogreentreeaoutdoorservices/home?authuser=0', icon: ExternalLink }
+      ]
+    },
+    {
+      id: 4,
       title: 'Power BI Dashboard',
       description: 'A data visualization project utilizing Microsoft Power BI to interpret complex datasets into actionable insights, based on the Microsoft Press curriculum.',
       tech: ['POWER BI', 'DATA VISUALIZATION', 'DAX', 'ETL'],
@@ -35,7 +48,6 @@ export default function ProjectsPage() {
     }
   ];
 
-  // ... (getStatusColor function remains the same) ...
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'IN PROGRESS': return 'text-yellow-300';
@@ -61,9 +73,11 @@ export default function ProjectsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* ... (project mapping code remains the same) ... */}
             {projects.map((project) => (
-              <div key={project.id} className="neon-border bg-gray-900 p-6 flex flex-col fade-in">
+              <div
+                key={project.id}
+                className="neon-border bg-gray-900 p-6 flex flex-col fade-in"
+              >
                 <div className="relative mb-4">
                   <div className={`absolute top-2 right-2 px-2 py-1 text-xs pixel-text ${getStatusColor(project.status)} border border-current z-10`}>
                     {project.status}
@@ -75,9 +89,11 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                 </div>
+                
                 <div className="flex-grow">
                   <h3 className="text-2xl font-bold pixel-text text-cyan-300 mb-2">{project.title}</h3>
                   <p className="text-sm pixel-text text-gray-100 mb-4 h-24 overflow-auto">{project.description}</p>
+                  
                   <div className="text-sm pixel-text text-emerald-300 mb-4">&gt; TECH_STACK:</div>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
@@ -85,10 +101,17 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 </div>
-                {project.links.length > 0 && (
+
+                {project.links && project.links.length > 0 && (
                   <div className="mt-auto pt-4 border-t border-emerald-500/30 flex flex-wrap gap-4">
                     {project.links.map((link, linkIndex) => (
-                       <a key={linkIndex} href={link.href} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 px-4 py-2 bg-black border-2 border-cyan-300 text-cyan-300 pixel-text hover:bg-cyan-300 hover:text-black transition-colors duration-300">
+                       <a
+                        key={linkIndex}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 px-4 py-2 bg-black border-2 border-cyan-300 text-cyan-300 pixel-text hover:bg-cyan-300 hover:text-black transition-colors duration-300"
+                      >
                         <link.icon size={16} />
                         <span>{link.label}</span>
                       </a>
@@ -99,7 +122,6 @@ export default function ProjectsPage() {
             ))}
           </div>
 
-          {/* 2. Add the new ProjectsFooter component here */}
           <ProjectsFooter />
         </div>
       </div>
