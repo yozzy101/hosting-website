@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
-import { Mail, Linkedin } from 'lucide-react';
+import { Mail, Linkedin, Download } from 'lucide-react'; // Added Download icon
 
 export default function AboutPage() {
     const contacts = [
@@ -19,7 +19,6 @@ export default function AboutPage() {
         <div className="min-h-screen relative">
             <Navigation />
             <div className="retro-grid absolute inset-0"></div>
-            {/* THIS LINE IS UPDATED */}
             <div className="pt-24 pb-24 px-4 relative z-10">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16 fade-in">
@@ -71,12 +70,12 @@ export default function AboutPage() {
                                         </a>
                                     ))}
                                 </div>
-                                <a 
-                                    href="/YosgarthC Resume.pdf" 
-                                    download 
-                                    className="retro-button-cv w-full mt-20 text-center"
-                                >
-                                    DOWNLOAD CV
+                                {/* UPDATED BUTTON CODE */}
+                                <a href="/YosgarthC Resume.pdf" download className="w-full mt-6 block">
+                                    <button className="retro-button w-full text-sm">
+                                        <Download size={16} className="inline-block align-middle mr-2" />
+                                        DOWNLOAD CV
+                                    </button>
                                 </a>
                             </div>
                             <div className="neon-border bg-gray-900 p-6 fade-in mb-16">
