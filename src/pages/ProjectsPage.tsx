@@ -19,6 +19,17 @@ export default function ProjectsPage() {
     },
     {
       id: 2,
+      title: 'Advanced Database Features & Performance Tuning',
+      description: 'Executed an in-depth analysis of a Goodreads book dataset by leveraging advanced PostgreSQL features. This project involved creating materialized views for frequently accessed data, using window functions to calculate author ratings, and implementing custom data types to structure complex information. Performed query optimization by creating indexes and analyzing execution plans to significantly improve data retrieval speed.',
+      tech: ['SQL', 'POSTGRESQL', 'PERFORMANCE TUNING', 'MATERIALIZED VIEWS', 'WINDOW FUNCTIONS'],
+      status: 'COMPLETED',
+      links: [
+        { label: 'View Dataset', href: 'https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks', icon: ExternalLink },
+        { label: 'View PDF Report', href: '/advanced-sql-tuning/assignment3 - YC.pdf', icon: FileText }
+      ]
+    },
+    {
+      id: 3,
       title: 'SF Public Library Usage Analysis',
       description: 'As a data analyst librarian, I designed and normalized a database to 3NF from a raw dataset of San Francisco Public Library usage. I developed and executed advanced SQL queries using PostgreSQL to answer key business questions, identifying trends in patron activity, checkout patterns across time, and relationships between patron age and library use to inform strategic planning.',
       tech: ['SQL', 'POSTGRESQL', 'DATABASE DESIGN', '3NF NORMALIZATION', 'ERD'],
@@ -29,7 +40,7 @@ export default function ProjectsPage() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       title: 'Company Website & Survey',
       description: 'Developed a customer-facing website and integrated a digital survey to streamline data management and enhance communication for Go Green Tree & Outdoor Services.',
       tech: ['HTML', 'CSS', 'GOOGLE SITES', 'SURVEY DESIGN'],
@@ -39,7 +50,7 @@ export default function ProjectsPage() {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: 'Power BI Dashboard',
       description: 'A data visualization project utilizing Microsoft Power BI to interpret complex datasets into actionable insights, based on the Microsoft Press curriculum.',
       tech: ['POWER BI', 'DATA VISUALIZATION', 'DAX', 'ETL'],
