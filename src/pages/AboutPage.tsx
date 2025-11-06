@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
-import { Mail, Linkedin, Download } from 'lucide-react'; // Added Download icon
+import { Mail, Linkedin, Download } from 'lucide-react';
 
 export default function AboutPage() {
     const contacts = [
@@ -10,9 +10,59 @@ export default function AboutPage() {
     ];
 
     const experience = [
-        { title: 'ORIENTATION LEADER', company: 'Dominican University', period: 'SUMMER 2023-25', description: 'Led groups of incoming students to foster college readiness, community, and leadership.', achievements: ['Mentored and guided incoming students for successful university transition.', 'Organized and facilitated engaging workshops and social events.'] },
-        { title: 'PEER LED TEAM LEARNING TUTOR', company: 'Dominican University', period: 'AUG - DEC 2023', description: 'Acted as an embedded tutor within lectures, leading workshops to increase student understanding.', achievements: ['Increased student comprehension in core subjects through targeted workshops.', 'Improved classroom dynamics by fostering student-faculty communication.'] },
-        { title: 'DATA MANAGEMENT', company: 'Go Green Tree & Outdoor Services', period: 'SUMMER 2022', description: 'Managed company data and developed a new website and customer survey for outdoor services.', achievements: ['Streamlined data collection with a new digital survey.', 'Enhanced customer communication channels through a new company website.'] }
+        { 
+            title: 'Research & Data Intern', 
+            company: 'TheDream.US', 
+            period: 'FEB 2026 - MAY 2026', // This line has been updated
+            description: 'Assisted the Measurement and Evaluation staff by supporting research projects, conducting data analysis, and helping to build internal data tracking tools.', 
+            achievements: [
+                'Cleaned, organized, and validated large datasets to support the development of longitudinal tracking tools.',
+                'Conducted descriptive data analyses on program data to support internal decision-making processes.',
+                'Assisted in the creation of data visualizations and summary tables for research and evaluation projects.'
+            ]
+            
+        },
+        { 
+            title: 'Data & Operations Intern', 
+            company: 'Liga Local Guanajuato', 
+            period: 'OCT 2025 - FEB 2026', 
+            description: 'Managed the complete data and operational logistics for a large adult soccer league, handling all match statistics, player credentialing, and league scheduling.', 
+            achievements: [
+                'Managed the league\'s player statistics database, tracking metrics like goals and red cards to ensure data integrity for player suspensions.',
+                'Generated and published weekly league-wide reports, including official team standings and "Golden Boot" leaderboards.',
+                'Oversaw the end-to-end player credentialing process, from registration to operating the card printing machine for official IDs.'
+            ] 
+        },
+        { 
+            title: 'ORIENTATION LEADER', 
+            company: 'Dominican University', 
+            period: 'SUMMER 2023-25', 
+            description: 'Led groups of incoming students to foster college readiness, community, and leadership.', 
+            achievements: [
+                'Mentored and guided incoming students for successful university transition.', 
+                'Organized and facilitated engaging workshops and social events.'
+            ] 
+        },
+        { 
+            title: 'PEER LED TEAM LEARNING TUTOR', 
+            company: 'Dominican University', 
+            period: 'AUG - DEC 2023', 
+            description: 'Acted as an embedded tutor within lectures, leading workshops to increase student understanding.', 
+            achievements: [
+                'Increased student comprehension in core subjects through targeted workshops.', 
+                'Improved classroom dynamics by fostering student-faculty communication.'
+            ] 
+        },
+        { 
+            title: 'DATA MANAGEMENT', 
+            company: 'Go Green Tree & Outdoor Services', 
+            period: 'SUMMER 2022', 
+            description: 'Managed company data and developed a new website and customer survey for outdoor services.', 
+            achievements: [
+                'Streamlined data collection with a new digital survey.', 
+                'Enhanced customer communication channels through a new company website.'
+            ] 
+        }
     ];
 
     return (
@@ -57,7 +107,7 @@ export default function AboutPage() {
 
                         {/* Right Column: Contact and Stats */}
                         <div className="space-y-8">
-                            <div className="neon-border bg-gray-900 p-6 fade-in">
+                            <div className="neon-border bg-gray-900 p-6 fade-in flex flex-col">
                                 <h2 className="text-xl font-bold pixel-text text-cyan-300 mb-4">&gt; CONTACT</h2>
                                 <div className="space-y-4">
                                     {contacts.map(({ label, email, link }, index) => (
@@ -70,7 +120,6 @@ export default function AboutPage() {
                                         </a>
                                     ))}
                                 </div>
-                                {/* UPDATED BUTTON CODE */}
                                 <a href="/YosgarthC Resume.pdf" download className="w-full mt-6 block">
                                     <button className="retro-button w-full text-sm">
                                         <Download size={16} className="inline-block align-middle mr-2" />
