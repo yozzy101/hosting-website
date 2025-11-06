@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from "@vercel/analytics/react"; 
 
-// Import Components
+
 import WelcomeScreen from './components/WelcomeScreen';
 import LoadingScreen from './components/LoadingScreen';
 
-// Import Pages
+
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
@@ -37,10 +38,11 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/research" element={<ResearchPage />} />
           <Route path="/certificates" element={<CertificatesPage />} />
+          <Route path="/research" element={<ResearchPage />} /> 
         </Routes>
       </div>
+      <Analytics />
     </Router>
   );
 }
