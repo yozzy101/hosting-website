@@ -80,7 +80,7 @@ export default function AboutPage() {
                             <div className="neon-border bg-gray-900 p-6 fade-in">
                                 <h2 className="text-2xl font-bold pixel-text text-cyan-300 mb-4">&gt; PROFILE</h2>
                                 <div className="space-y-4 text-gray-100 pixel-text">
-                                    <p>Aspiring Informatics professional passionate about consuming and interpreting data into usable information, from library settings to businesses.</p>
+                                    <p>I am a senior Informatics major with a concentration in Data Analytics. Experienced in managing large-scale datasets and ensuring data integrity through roles with Liga Local and TheDream.US. Bilingual professional with strong technical proficiency in SQL, R, and Excel, seeking to leverage database management skills to drive organizational efficiency and accurate reporting.</p>
                                 </div>
                             </div>
                             <div className="neon-border bg-gray-900 p-6 fade-in">
