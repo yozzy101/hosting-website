@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from "@vercel/analytics/react"; 
 
-
 import WelcomeScreen from './components/WelcomeScreen';
 import LoadingScreen from './components/LoadingScreen';
-
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -14,7 +12,11 @@ import CertificatesPage from './pages/CertificatesPage';
 import ResearchPage from './pages/ResearchPage';
 
 export default function App() {
-  const [hasEntered, setHasEntered] = useState(false);
+  // FIX: Check session storage immediately to see if user has already entered
+  const [hasEntered, setHasEntered] = useState(() => {
+    return sessionStorage.getItem('hasEntered') === 'true';
+  });
+
   const [isLoading, setIsLoading] = useState(false);
 
   const handleEnter = () => {
@@ -22,9 +24,12 @@ export default function App() {
     setTimeout(() => {
       setIsLoading(false);
       setHasEntered(true);
+      // FIX: Save "true" to storage so it remembers you on refresh
+      sessionStorage.setItem('hasEntered', 'true');
     }, 3000);
   };
 
+  // Only show Welcome/Loading if the user has NOT entered yet
   if (!hasEntered) {
     return isLoading ? <LoadingScreen /> : <WelcomeScreen onEnter={handleEnter} />;
   }
